@@ -7,8 +7,8 @@ import (
 	"slices"
 
 	"github.com/spf13/cobra"
-	"limeal.fr/launchygo/connectors"
-	"limeal.fr/launchygo/game/folder"
+	"limeal.fr/launchygo/pkg/connectors"
+	"limeal.fr/launchygo/pkg/game/folder"
 )
 
 var publishCmd = &cobra.Command{

@@ -23,42 +23,12 @@ go get limeal.fr/launchygo
 
 ### 1. Generate a Game Pack
 
-```bash
-# Generate a Vanilla pack
-launchygo generate vanilla my-pack 1.20.1
+First this librairies use a 3 layers flow:
 
-# Generate a Fabric pack
-launchygo generate fabric my-fabric-pack 1.20.1
-```
-
-### 2. Launch Minecraft
-
-```bash
-# Launch from local file system
-launchygo launch my-pack file:///path/to/pack
-
-# Launch from SFTP server
-launchygo launch my-pack sftp://user:pass@server.com/path/to/pack
-
-# Launch with authentication
-launchygo launch my-pack file:///path/to/pack --auth microsoft://your-code
-
-# Launch with custom memory settings
-launchygo launch my-pack file:///path/to/pack --Xmx 8 --Xms 4
-
-# Launch and join a server directly
-launchygo launch my-pack file:///path/to/pack --quickPlayMultiplayer mc.example.com
-```
-
-### 3. Publish a Game Pack
-
-```bash
-# Publish to SFTP server
-launchygo publish my-pack sftp://user:pass@server.com/path/to/upload
-
-# Publish to HTTP server
-launchygo publish my-pack https://server.com/api/upload
-```
+1- Generate (download required files from mojang servers and put it in packs)
+2 - Publish (Before publishing add extra file aka: `mods`, ... and then use it)
+    - It will update the manifest and upload it to your file storage service through sftp or current folder
+3 - Launch (Download from your server and tweak the game with your settings)
 
 ## Command Line Interface
 
@@ -186,7 +156,7 @@ The library supports multiple connector types:
 
 - **File Connector**: `file:///path/to/pack`
 - **SFTP Connector**: `sftp://user:pass@host:port/path`
-- **HTTP Connector**: `http://server.com/path` or `https://server.com/path`
+- **HTTP Connector**: `http://server.com/path` or `https://server.com/path` (read only)
 
 ### Game Folder Structure
 
@@ -247,8 +217,9 @@ if err := gameFolder.Build(false, progressCallback); err != nil {
 ## Requirements
 
 - Go 1.23.4 or later
-- Java 8 or later (for Minecraft)
 - Network access (for downloading game assets)
+
+Note: For now it has been completely tested for 1.20.1
 
 ## Supported Platforms
 
@@ -259,7 +230,6 @@ if err := gameFolder.Build(false, progressCallback); err != nil {
 ## Dependencies
 
 - [Cobra](https://github.com/spf13/cobra) - CLI framework
-- [Fyne](https://fyne.io/) - Cross-platform GUI (optional)
 - [SFTP](https://github.com/pkg/sftp) - SFTP client
 - [Crypto](https://golang.org/x/crypto) - Cryptographic functions
 

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"limeal.fr/launchygo/game/folder/generator"
+	"limeal.fr/launchygo/pkg/game/folder/generator"
 )
 
 var generateCmd = &cobra.Command{

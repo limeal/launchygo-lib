@@ -6,12 +6,12 @@ import (
 	"path/filepath"
 
 	"github.com/spf13/cobra"
-	"limeal.fr/launchygo/connectors"
-	"limeal.fr/launchygo/game/authenticator"
-	"limeal.fr/launchygo/game/folder"
-	"limeal.fr/launchygo/game/folder/rules"
-	"limeal.fr/launchygo/game/launcher"
-	"limeal.fr/launchygo/game/profile"
+	"limeal.fr/launchygo/pkg/connectors"
+	"limeal.fr/launchygo/pkg/game/authenticator"
+	"limeal.fr/launchygo/pkg/game/folder"
+	"limeal.fr/launchygo/pkg/game/folder/rules"
+	"limeal.fr/launchygo/pkg/game/launcher"
+	"limeal.fr/launchygo/pkg/game/profile"
 )
 
 var xmx int
